@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Supermarket — Till</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Supermarket</h1>
+    <nav>
+        <a href="index.html">Sheet</a>
+        <a href="till.html">Till</a>
+        <a href="who_is_in.html">Who is in</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Till</h2>
+
+    <div class="form-group">
+        <label for="bill-box">Bill:</label>
+        <input type="text" id="bill-box" placeholder="Enter Bill">
+    </div>
+
+    <div class="form-group">
+        <label for="paid-box">Customer Paid:</label>
+        <input type="text" id="paid-box" placeholder="Enter Paid Amount">
+    </div>
+
+    <button onclick="processTill()">Take</button>
+
+    <div id="result-area" class="info-section"></div>
+</div>
+
+<footer>
+    Roll Number: F24A-247221
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

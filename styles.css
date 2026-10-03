@@ -10,3 +10,6 @@ footer { background-color: #333; color: white; text-align: center; padding: 10px
 form { margin-bottom: 20px; display: flex; gap: 10px; }
 form input { padding: 8px; }
 button { padding: 8px 16px; background-color: #27ae60; color: white; border: none; cursor: pointer; } }
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; }
+.form-group input { padding: 8px; width: 200px; }
