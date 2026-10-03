@@ -39,6 +39,15 @@
         <input type="text" id="price-box" placeholder="Price">
         <button id="add-btn" onclick="addRow()">Add</button>
     </form>
+   
+    <div class="info-section">
+        <p><strong>Total:</strong> <span id="total-val">0</span></p>
+        <p><strong>Kind of Total:</strong> <span id="total-kind">-</span></p>
+        <p><strong>Kind of Note (Just Added):</strong> <span id="note-kind">-</span></p>
+        <p><strong>Does price text match price as a number (==)?</strong> <span id="match-val">-</span></p>
+        <p><strong>Are price text and price number same kind (===)?</strong> <span id="strict-match-val">-</span></p>
+        <p><strong>Kind of Line (if NaN):</strong> <span id="nan-kind">-</span></p>
+    </div>
 </div>
 
 <footer>
