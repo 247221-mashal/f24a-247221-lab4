@@ -24,6 +24,17 @@
         <button class="btn-here" onclick="addPerson(true)">Here</button>
         <button class="btn-out" onclick="addPerson(false)">Out</button>
     </form>
+    <table style="width: 50%;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>In Shop?</th>
+            </tr>
+        </thead>
+        <tbody id="people-body"></tbody>
+    </table>
+
+    <p><strong>People currently in shop:</strong> <span id="in-count">0</span></p>
 </div>
 
 <footer>

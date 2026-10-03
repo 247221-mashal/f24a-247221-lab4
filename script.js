@@ -130,3 +130,47 @@ function calculateChange(bill, paid) {
 function calculateChange(bill, paid) {
     return paid - bill;
 }
+const people = [];
+
+function addPerson(status) {
+    const nameInput = document.getElementById('person-name').value;
+    if (nameInput.trim() !== "") {
+        people.push({
+            name: nameInput,
+            isIn: status
+        });
+        document.getElementById('person-name').value = '';
+        renderPeople();
+    }
+}
+
+function renderPeople() {
+    const tbody = document.getElementById('people-body');
+    if (!tbody) return;
+
+    tbody.innerHTML = '';
+    let countIn = 0;
+
+    people.forEach(p => {
+        const tr = document.createElement('tr');
+
+        const personName = p.name;
+        const personStatus = p.isIn;
+
+        const tdName = document.createElement('td');
+        tdName.textContent = personName;
+
+        const tdStatus = document.createElement('td');
+        tdStatus.textContent = personStatus;
+
+        tr.appendChild(tdName);
+        tr.appendChild(tdStatus);
+        tbody.appendChild(tr);
+
+        if (personStatus === true) {
+            countIn++;
+        }
+    });
+
+    document.getElementById('in-count').textContent = countIn;
+}
