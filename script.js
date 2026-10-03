@@ -88,22 +88,43 @@ function renderTable() {
 function processTill() {
     const billVal = Number(document.getElementById('bill-box').value);
     const paidInput = document.getElementById('paid-box').value;
-    const paidVal = Number(paidInput);
 
-    const changeResult = calculateChange(billVal, paidVal);
+    let paidVal;
+
+    // When paid box is empty, store null
+    if (paidInput.trim() === "") {
+        paidVal = null;
+    } else {
+        paidVal = Number(paidInput);
+    }
 
     const resDiv = document.getElementById('result-area');
 
+    // Display kind of null
+    if (paidVal === null) {
+        resDiv.innerHTML = `
+            <p><strong>Paid Value:</strong> null</p>
+            <p><strong>Kind of Paid:</strong> ${typeof paidVal}</p>
+            <p><strong>Still Owed:</strong> ${billVal}</p>
+        `;
+        return;
+    }
+
+    const changeResult = calculateChange(billVal, paidVal);
+
     if (paidVal < billVal) {
-      
         resDiv.innerHTML = `<p><strong>Still Owed:</strong> ${billVal - paidVal}</p>`;
     } else {
-      
         resDiv.innerHTML = `
             <p><strong>Change:</strong> ${changeResult}</p>
             <p><strong>Half of Change:</strong> ${changeResult / 2}</p>
         `;
     }
+}
+
+function calculateChange(bill, paid) {
+    if (paid === null) return 0;
+    return paid - bill;
 }
 
 function calculateChange(bill, paid) {
