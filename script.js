@@ -16,9 +16,7 @@ function addRow() {
 
     rowObj.quantity = qtyNum;
     rowObj.price = priceNum;
-    
     rowObj.line = qtyNum * priceNum;
-    
     rowObj.note = priceInput + qtyInput;
 
     rows.push(rowObj);
@@ -64,7 +62,6 @@ function renderTable() {
 
         tbody.appendChild(tr);
 
-
         if (!isNaN(r.line)) {
             totalSum += r.line;
         }
@@ -90,7 +87,6 @@ function renderTable() {
     }
 }
 
-
 function processTill() {
     const billVal = Number(document.getElementById('bill-box').value);
     const paidInput = document.getElementById('paid-box').value;
@@ -104,8 +100,8 @@ function processTill() {
     }
 
     const resDiv = document.getElementById('result-area');
-l
-    
+    if (!resDiv) return;
+
     if (paidVal === null) {
         resDiv.innerHTML = `
             <p><strong>Paid Value:</strong> null</p>
@@ -117,11 +113,9 @@ l
 
     const changeResult = calculateChange(billVal, paidVal);
 
-
     if (paidVal < billVal) {
         resDiv.innerHTML = `<p><strong>Still Owed:</strong> ${billVal - paidVal}</p>`;
     } else {
-  
         resDiv.innerHTML = `
             <p><strong>Change:</strong> ${changeResult}</p>
             <p><strong>Half of Change:</strong> ${changeResult / 2}</p>
@@ -134,9 +128,8 @@ function calculateChange(bill, paid) {
     return paid - bill;
 }
 
-
 const people = [
-    { name: "Initial Customer" } 
+    { name: "Initial Customer" }
 ];
 
 function addPerson(status) {
@@ -161,7 +154,6 @@ function renderPeople() {
     people.forEach(p => {
         const tr = document.createElement('tr');
 
-        
         const personName = p.name;
         const personStatus = p.isIn;
 
@@ -169,7 +161,6 @@ function renderPeople() {
         tdName.textContent = personName;
 
         const tdStatus = document.createElement('td');
-       
         tdStatus.textContent = personStatus !== undefined ? personStatus : "undefined";
 
         tr.appendChild(tdName);
@@ -181,9 +172,11 @@ function renderPeople() {
         }
     });
 
-    document.getElementById('in-count').textContent = countIn;
+    const countElem = document.getElementById('in-count');
+    if (countElem) countElem.textContent = countIn;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     renderPeople();
+    renderTable();
 });

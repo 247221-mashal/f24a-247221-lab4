@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Supermarket — Sheet</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -30,16 +31,17 @@
             </tr>
         </thead>
         <tbody id="table-body">
-           
+            <!-- Dynamic rows injected here by script.js -->
         </tbody>
     </table>
-    <form id="item-form" onsubmit="return false;">
-        <input type="text" id="item-box" placeholder="Item">
-        <input type="text" id="quantity-box" placeholder="Quantity">
-        <input type="text" id="price-box" placeholder="Price">
-        <button id="add-btn" onclick="addRow()">Add</button>
+
+    <form id="item-form">
+        <input type="text" id="item-box" placeholder="Item" required>
+        <input type="number" id="quantity-box" placeholder="Quantity" step="any" required>
+        <input type="number" id="price-box" placeholder="Price" step="any" required>
+        <button type="button" id="add-btn">Add</button>
     </form>
-   
+    
     <div class="info-section">
         <p><strong>Total:</strong> <span id="total-val">0</span></p>
         <p><strong>Kind of Total:</strong> <span id="total-kind">-</span></p>

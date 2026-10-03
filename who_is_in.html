@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Supermarket — Who is in</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -21,9 +22,10 @@
 
     <form onsubmit="return false;">
         <input type="text" id="person-name" placeholder="Name">
-        <button class="btn-here" onclick="addPerson(true)">Here</button>
-        <button class="btn-out" onclick="addPerson(false)">Out</button>
+        <button type="button" class="btn-here" onclick="addPerson(true)">Here</button>
+        <button type="button" class="btn-out" onclick="addPerson(false)">Out</button>
     </form>
+
     <table style="width: 50%;">
         <thead>
             <tr>

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Supermarket — Till</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -21,15 +22,15 @@
 
     <div class="form-group">
         <label for="bill-box">Bill:</label>
-        <input type="text" id="bill-box" placeholder="Enter Bill">
+        <input type="number" id="bill-box" placeholder="Enter Bill" step="any">
     </div>
 
     <div class="form-group">
         <label for="paid-box">Customer Paid:</label>
-        <input type="text" id="paid-box" placeholder="Enter Paid Amount">
+        <input type="number" id="paid-box" placeholder="Enter Paid Amount" step="any">
     </div>
 
-    <button onclick="processTill()">Take</button>
+    <button type="button" onclick="processTill()">Take</button>
 
     <div id="result-area" class="info-section"></div>
 </div>
