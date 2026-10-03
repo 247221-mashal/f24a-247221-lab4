@@ -1,3 +1,5 @@
+const rows = [];
+
 function addRow() {
     const itemVal = document.getElementById('item-box').value;
     const qtyInput = document.getElementById('quantity-box').value;
@@ -15,8 +17,8 @@ function addRow() {
     rowObj.quantity = qtyNum;
     rowObj.price = priceNum;
     
-    
     rowObj.line = qtyNum * priceNum;
+    
     rowObj.note = priceInput + qtyInput;
 
     rows.push(rowObj);
@@ -27,11 +29,12 @@ function addRow() {
 
     renderTable();
 }
+
 function renderTable() {
     const tbody = document.getElementById('table-body');
     if (!tbody) return;
-    tbody.innerHTML = '';
 
+    tbody.innerHTML = '';
     let totalSum = 0;
     const lastRow = rows[rows.length - 1];
 
@@ -39,7 +42,7 @@ function renderTable() {
         const tr = document.createElement('tr');
 
         const tdItem = document.createElement('td');
-        tdItem.textContent = r.item !== undefined ? r.item : undefined;
+        tdItem.textContent = r.item !== undefined ? r.item : "undefined";
 
         const tdQty = document.createElement('td');
         tdQty.textContent = r.quantity;
@@ -60,6 +63,7 @@ function renderTable() {
         tr.appendChild(tdNote);
 
         tbody.appendChild(tr);
+
 
         if (!isNaN(r.line)) {
             totalSum += r.line;
@@ -85,13 +89,14 @@ function renderTable() {
         }
     }
 }
+
+
 function processTill() {
     const billVal = Number(document.getElementById('bill-box').value);
     const paidInput = document.getElementById('paid-box').value;
 
     let paidVal;
 
-    // When paid box is empty, store null
     if (paidInput.trim() === "") {
         paidVal = null;
     } else {
@@ -99,8 +104,8 @@ function processTill() {
     }
 
     const resDiv = document.getElementById('result-area');
-
-    // Display kind of null
+l
+    
     if (paidVal === null) {
         resDiv.innerHTML = `
             <p><strong>Paid Value:</strong> null</p>
@@ -112,9 +117,11 @@ function processTill() {
 
     const changeResult = calculateChange(billVal, paidVal);
 
+
     if (paidVal < billVal) {
         resDiv.innerHTML = `<p><strong>Still Owed:</strong> ${billVal - paidVal}</p>`;
     } else {
+  
         resDiv.innerHTML = `
             <p><strong>Change:</strong> ${changeResult}</p>
             <p><strong>Half of Change:</strong> ${changeResult / 2}</p>
@@ -127,10 +134,10 @@ function calculateChange(bill, paid) {
     return paid - bill;
 }
 
-function calculateChange(bill, paid) {
-    return paid - bill;
-}
-const people = [];
+
+const people = [
+    { name: "Initial Customer" } 
+];
 
 function addPerson(status) {
     const nameInput = document.getElementById('person-name').value;
@@ -154,6 +161,7 @@ function renderPeople() {
     people.forEach(p => {
         const tr = document.createElement('tr');
 
+        
         const personName = p.name;
         const personStatus = p.isIn;
 
@@ -161,7 +169,8 @@ function renderPeople() {
         tdName.textContent = personName;
 
         const tdStatus = document.createElement('td');
-        tdStatus.textContent = personStatus;
+       
+        tdStatus.textContent = personStatus !== undefined ? personStatus : "undefined";
 
         tr.appendChild(tdName);
         tr.appendChild(tdStatus);
@@ -174,3 +183,7 @@ function renderPeople() {
 
     document.getElementById('in-count').textContent = countIn;
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    renderPeople();
+});
