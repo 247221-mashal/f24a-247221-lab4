@@ -13,3 +13,5 @@ button { padding: 8px 16px; background-color: #27ae60; color: white; border: non
 .form-group { margin-bottom: 15px; }
 .form-group label { display: block; margin-bottom: 5px; }
 .form-group input { padding: 8px; width: 200px; }
+.btn-here { background-color: #27ae60; }
+.btn-out { background-color: #e74c3c; }

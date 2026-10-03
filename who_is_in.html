@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Supermarket — Who is in</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Supermarket</h1>
+    <nav>
+        <a href="index.html">Sheet</a>
+        <a href="till.html">Till</a>
+        <a href="who_is_in.html">Who is in</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Who is in the Shop</h2>
+
+    <form onsubmit="return false;">
+        <input type="text" id="person-name" placeholder="Name">
+        <button class="btn-here" onclick="addPerson(true)">Here</button>
+        <button class="btn-out" onclick="addPerson(false)">Out</button>
+    </form>
+</div>
+
+<footer>
+    Roll Number: F24A-247221
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
