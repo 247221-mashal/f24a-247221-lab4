@@ -61,7 +61,6 @@ function renderTable() {
 
         tbody.appendChild(tr);
 
-        // A NaN line is left out of total
         if (!isNaN(r.line)) {
             totalSum += r.line;
         }
@@ -85,4 +84,28 @@ function renderTable() {
             document.getElementById('nan-kind').textContent = "Not NaN";
         }
     }
+}
+function processTill() {
+    const billVal = Number(document.getElementById('bill-box').value);
+    const paidInput = document.getElementById('paid-box').value;
+    const paidVal = Number(paidInput);
+
+    const changeResult = calculateChange(billVal, paidVal);
+
+    const resDiv = document.getElementById('result-area');
+
+    if (paidVal < billVal) {
+      
+        resDiv.innerHTML = `<p><strong>Still Owed:</strong> ${billVal - paidVal}</p>`;
+    } else {
+      
+        resDiv.innerHTML = `
+            <p><strong>Change:</strong> ${changeResult}</p>
+            <p><strong>Half of Change:</strong> ${changeResult / 2}</p>
+        `;
+    }
+}
+
+function calculateChange(bill, paid) {
+    return paid - bill;
 }
